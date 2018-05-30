@@ -1,0 +1,133 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  
+<mat-tab-group>
+  <mat-tab label= "Report Loss" >Report Loss</mat-tab>
+  <mat-tab label= "Report Found">Report Found</mat-tab>
+  <mat-tab label= "Modify Lost ID">Modify Lost ID</mat-tab>
+  <mat-tab label= "Print Lost ID">Print Lost ID</mat-tab>
+  <mat-tab label= "Search Lost ID">Search Lost ID</mat-tab>
+</mat-tab-group>
+
+<mat-grid-list cols=12 rowHeight="70px">
+<!-- <mat-grid-tile colspan=12 rowspan=1></mat-grid-tile> -->
+<mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+  <mat-grid-tile colspan=3 rowspan=1>
+  <mat-form-field >
+    <mat-select placeholder="ID-Type">
+      <mat-option *ngFor= "let IDType of IDTypes" [value]= "IDType.value">
+        {{IDType.viewValue}}
+      </mat-option> 
+    </mat-select>
+  </mat-form-field>
+</mat-grid-tile>
+
+<mat-grid-tile colspan=3 rowspan=1>
+    <mat-form-field>
+        <mat-select placeholder="Concession-Code" 
+                    [(ngModel)] = "lfConcCode"
+                    (change)="eventSelection($event.value)">
+            <mat-option *ngFor= "let cCode of concCodes" [value]= "cCode.value">
+                {{cCode.viewValue}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+</mat-grid-tile>    
+<mat-grid-tile colspan=3 rowspan=1>
+  <div class="Series">Series Updation</div>
+  <mat-radio-group >
+    <mat-radio-button value="1">Yes</mat-radio-button>
+    <mat-radio-button value="2">No</mat-radio-button>
+  </mat-radio-group>
+</mat-grid-tile>
+<mat-grid-tile colspan=1.8 rowspan=1></mat-grid-tile>
+<!-- <mat-grid-tile colspan=12 rowspan=1></mat-grid-tile> -->
+<mat-grid-tile colspan=6 rowspan=1>
+  <div class="Serial">Serial Number</div>
+</mat-grid-tile>
+<mat-grid-tile colspan=6 rowspan=1>
+  <form class="SrlInput">
+    <mat-form-field >
+   <input matInput aria-placeholder="Serail Number" >
+  </mat-form-field>
+  </form>
+</mat-grid-tile>
+<mat-grid-tile colspan=6 rowspan=1>
+    <div class="Serial">DTPASS Applicable Class</div>
+</mat-grid-tile>
+<mat-grid-tile colspan=6 rowspan=1>
+  <div class="AppClass">
+  <mat-checkbox class="DtpassClass">1A</mat-checkbox>
+  <mat-checkbox class="DtpassClass">2A</mat-checkbox>
+  <mat-checkbox class="DtpassClass">FC</mat-checkbox>
+  <mat-checkbox class="DtpassClass">3A</mat-checkbox>
+  <mat-checkbox class="DtpassClass">SL</mat-checkbox>
+  <mat-checkbox class="DtpassClass">CC</mat-checkbox>
+  </div>
+</mat-grid-tile>
+<mat-grid-tile colspan=6 rowspan=1>
+    <div class="Serial">Reference Letter</div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=6 rowspan=1>
+    <form class="RefLtr">
+      <mat-form-field style="width:350px">
+     <input matInput>
+    </mat-form-field>
+    </form>
+  </mat-grid-tile>  
+</mat-grid-list>  
+
+<!-- <mat-grid-list cols=12 rowHeight="70px">
+  <mat-grid-tile colspan=6 rowspan=1>
+      <div class="Serial">Issuing Authority</div>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan=6 rowspan=1>
+      <form class="RefLtr">
+          <mat-form-field style="width:350px">
+            <input matInput>
+          </mat-form-field>
+      </form> 
+  </mat-grid-tile>
+  </mat-grid-list> -->
+
+  <app-lf-issuing-auth> </app-lf-issuing-auth>
+
+ <mat-grid-list cols=12 rowHeight="70px"> 
+  <mat-grid-tile colspan=12 rowspan=1>
+    <button mat-button class="Final"> Submit</button>
+    <button mat-button class="Final"> Reset</button>
+  </mat-grid-tile>
+
+</mat-grid-list>  
+    
+</div>
+<!-- -------------------------------------------------------------------------------------------- -->
+ 
+<!-- 
+  <div id="divAppRoot" [className]="theme">
+
+    <ng-container>
+      <mat-sidenav-container class="bg-white">
+        <mat-sidenav-content [formGroup]="options">
+            <app-header id="appHeader" (logOut)="logOut()" [sideBarVisible]="sidenavBar.opened" (showSideBar)="sidenavBar.toggle()"></app-header>
+            <div id="divBar" #focusSetter tabIndex="0" class="py-2">
+              <router-outlet></router-outlet>
+            </div>
+            <app-footer id="appFooter"></app-footer> -->
+            <!-- <button mat-flat-button color="primary" (click)="sidenavBar.toggle()" class="px-3 text-lg font-weight-bold" style="position: fixed; top:200px; right:-26px; transform: rotate(-90deg);">
+              Help
+            </button>
+        </mat-sidenav-content>
+        <mat-sidenav id="sideNavBar" #sidenavBar mode="side" position="end" class="mat-elevation-z8"
+                      [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top" opened="false"
+                      [fixedBottomGap]="options.value.bottom">
+          <app-sidebar-Bar (toggleSidenavBar)="sidenavBar.toggle()" (logOut)="logOut()"></app-sidebar-Bar>
+        </mat-sidenav>
+      </mat-sidenav-container>
+    </ng-container>
+    </div>
+     -->

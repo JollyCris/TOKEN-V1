@@ -1,0 +1,93 @@
+[
+    {
+        "zone_2C"   : "IR",
+        "zone_4C"   : "IR  ",
+        "zoneName"  : "INDIAN RAILWAYS           "
+    },    
+
+    {
+        "zone_2C"   : "KR",
+        "zone_4C"   : "KR  ",
+        "zoneName"  : "KONKAN RAILWAY            "
+    },    
+    {
+        "zone_2C"   : "CR",
+        "zone_4C"   : "CR  ",
+        "zoneName"  : "CENTRAL RAILWAY           "
+    },
+    {
+        "zone_2C"   : "ER",
+        "zone_4C"   : "ER  ",
+        "zoneName"  : "EASTERN RAILWAY           "
+    },    
+    {
+        "zone_2C"   : "NR",
+        "zone_4C"   : "NR  ",
+        "zoneName"  : "NORTHERN RAILWAY          "
+    },
+    {
+        "zone_2C"   : "NE",
+        "zone_4C"   : "NER ",
+        "zoneName"  : "NORTH EAST RAILWAY        "
+    },
+    {
+        "zone_2C"   : "NF",
+        "zone_4C"   : "NFR ",
+        "zoneName"  : "NORTH FRONT RAILWAY       "
+    },
+    {
+        "zone_2C"   : "SR",
+        "zone_4C"   : "SR  ",
+        "zoneName"  : "SOUTHERN RAILWAY          "
+    },
+    {
+        "zone_2C"   : "SE",
+        "zone_4C"   : "SER ",
+        "zoneName"  : "SOUTH EASTERN RAILWAY     "
+    },
+    {
+        "zone_2C"   : "WR",
+        "zone_4C"   : "WR  ",
+        "zoneName"  : "WESTERN RAILWAY           "
+    },
+    {
+        "zone_2C"   : "SC",
+        "zone_4C"   : "SCR ",
+        "zoneName"  : "SOUTH CENTRAL RAILWAY     "
+    },
+    {
+        "zone_2C"   : "EC",
+        "zone_4C"   : "ECR ",
+        "zoneName"  : "EAST CENTRAL RAILWAY      "
+    },
+    {
+        "zone_2C"   : "NW",
+        "zone_4C"   : "NWR ",
+        "zoneName"  : "NORTH WESTERN RAILWAY     "
+    },
+    {
+        "zone_2C"   : "EO",
+        "zone_4C"   : "ECOR ",
+        "zoneName"  : "EAST COAST RAILWAY        "
+    },
+    {
+        "zone_2C"   : "NC",
+        "zone_4C"   : "NCR ",
+        "zoneName"  : "NORTH CENTRAL RAILWAY     "
+    },
+    {
+        "zone_2C"   : "SB",
+        "zone_4C"   : "SECR",
+        "zoneName"  : "SOUTH EAST CENTRAL RAILWAY"
+    },
+    {
+        "zone_2C"   : "SW",
+        "zone_4C"   : "SWR ",
+        "zoneName"  : "SOUTH WEST RAILWAY        "
+    },
+    {
+        "zone_2C"   : "WC",
+        "zone_4C"   : "WCR ",
+        "zoneName"  : "WEST CENTRAL RAILWAY      "
+    } 
+]

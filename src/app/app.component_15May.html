@@ -1,0 +1,114 @@
+
+
+<div style="text-align:center">
+  <h1> {{ title }} </h1>
+</div>  
+
+<mat-grid-list cols=12 rowHeight="70px">
+  <div class="mainMenu">
+    <mat-grid-tile colspan=1 rowspan=1></mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1>
+      <button class="bclass" mat-button [matMenuTriggerFor]="reportloss">Report Loss</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1>
+      <button mat-button [matMenuTriggerFor]="reportloss">Report Found</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1>
+      <button mat-button [matMenuTriggerFor]="reportloss">Modify Lost Id</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1>
+      <button mat-button [matMenuTriggerFor]="reportloss">Search Lost Id</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1>
+      <button mat-button [matMenuTriggerFor]="reportloss">Print Lost Id</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=1 rowspan=1></mat-grid-tile>
+  </div>
+
+  <div class="content">
+  <mat-grid-tile colspan=12 rowspan=1> 
+    <h3>{{subtitle1}}</h3>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan=4 rowspan=1></mat-grid-tile>
+
+    <mat-grid-tile colspan=4 rowspan=1>
+          <mat-form-field>
+              <mat-select placeholder="Concession-Code" 
+                          [(ngModel)] = "lfConcCode"
+                          (change)="eventSelection($event.value)">
+                  <mat-option *ngFor= "let cCode of concCodes" [value]= "cCode.value">
+                      {{cCode.value}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1></mat-grid-tile>
+
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1>
+        <div class="Serial">Serial Number</div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1>
+          <form class="SrlInput">
+              <mat-form-field >
+             <input matInput aria-placeholder="Serail Number" >
+            </mat-form-field>
+          </form>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+  
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1>
+        <div class="Serial">Reference Letter</div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1>
+        <form class="RefLtr">
+            <mat-form-field style="width:350px">
+           <input matInput>
+          </mat-form-field>
+          </form>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1>
+        <div class="Serial">Issuing Authority</div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=4 rowspan=1>
+        <form class="RefLtr">
+            <mat-form-field style="width:350px">
+           <input matInput>
+          </mat-form-field>
+          </form>
+    </mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+
+    <mat-grid-tile colspan=12 rowspan=1>
+        <button mat-button class="Final"> Submit</button>
+        <button mat-button class="Final"> Reset</button>
+    </mat-grid-tile>
+    
+  </div>
+
+</mat-grid-list>
+
+<mat-menu #reportloss="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="token" value="Metal Token" on>Metal Tokens</button>
+  <button mat-menu-item [matMenuTriggerFor]="series">Passes</button>
+  <button mat-menu-item [matMenuTriggerFor]="series">BPT</button>
+  <button mat-menu-item [matMenuTriggerFor]="series">EFT</button>
+  <button mat-menu-item [matMenuTriggerFor]="series">Vouchers</button>
+  <button mat-menu-item [matMenuTriggerFor]="series">Ticket Rolls</button>
+</mat-menu>
+
+<mat-menu #token="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="series">Dtpass</button>
+  <button mat-menu-item [matMenuTriggerFor]="series">Others</button>
+</mat-menu>
+
+<mat-menu #series="matMenu">
+  <button mat-menu-item >Single Id</button>
+  <button mat-menu-item >ID Range</button>
+</mat-menu>

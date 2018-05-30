@@ -1,1 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+h1 {
+  color: navy;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.mat-tab-label{
+  min-width: 35px !important;
+  padding: 5px;
+  background-color:transparent;
+  color:rgb(0, 0, 0);
+  font-weight: 1000;
+  font-size: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+mat-grid-tile {
+    /* background: rgb(248, 248, 245); */
+    background: rgb(255, 245, 245);
+  }
+  
+mat-card{
+  
+  align-items: center;
+  object-position: 0%;
+  background-position-y: 25%; 
+  border: 50px;
+    
+}
+.mat-form-field {
+  width: auto;
+}
+.mat-select-value {
+  max-width: 100%;
+  width: auto;
+}  
+.mat-form-field-infix { 
+  width: auto; 
+}
+.mat-select-content{
+  width:2000px !important;
+  
+  /* font-size: 10px !important; */
+} 
+.mat-tab-group {
+  background-color: rgb(229, 244, 250);
+  font-size:20px;
+  color: navy;
+  /* color: rgb(96, 97, 138); */
+  font-weight: bold;
+  align-content: center;
+  align-items: center;
+  line-height: 60px;
+  /* margin-top: 20px; */
+  /* margin-bottom: 20px; */
+} 
+.bclass {
+  width: 100%;
+  margin: 2%;
+  background-color: cornflowerblue;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font: bolder;
+  height: 40%;
+  font-size: larger;
+}
+.Series {
+  margin : 10px;
+  color :rgb(0, 0, 0);
+  font-family : calibri;
+  font-size : 17px;  
+  padding-right: 5%;
+}
+.Serial {
+  margin : 0px;
+  color :rgb(0, 0, 0);
+  font-family : calibri;
+  font-size : 17px;  
+  padding-left: 65%;
+  
+}
+.BillNo{
+  column-width: auto;
+  padding-right: 35%;
+}
+.SrlInput{
+  padding-right:35%;
+  /* background-position-y: 0%; */
+  margin: 20px;
+}
+.SrlInput2{
+  padding-right:20%;
+  /* background-position-y: 50%; */
+  margin: 20px;
+}
+.AppClass {
+  padding-right: 40%;
+}
+.DtpassClass {
+  padding-left: 5px; 
+  padding-right: 5px; 
+}
+.L-IssuAuth {
+    /* margin : 40px; */
+    color :rgb(121, 134, 153);
+    font-family : calibri;
+    font-size : 17px;  
+    padding-left: 25%;
+    padding: right 0%;
+    /* text-align: right; */
+  }
+ .Zone {
+    padding-right: 25%;
+    width: 80px;
+  } 
+.RefLtr {
+  padding-right: 15%;
+}
+.Final {
+  margin : 10px;
+}  
+.mainMenu{
+  color: lightsteelblue;
+  background-color: lightsteelblue;
+  text-align: justify;
+  border-color: rgb(240, 39, 8); 
+  width: 80%;
+  align-content: stretch;
+  height: 0px;
+}

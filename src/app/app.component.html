@@ -1,113 +1,211 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1> {{ title }} </h1>
-  </div>  
-  
+
+<mat-card>
   <mat-grid-list cols=12 rowHeight="70px">
-    <div class="mainMenu">
-      <mat-grid-tile colspan=1 rowspan=1></mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1>
-        <button class="bclass" mat-button [matMenuTriggerFor]="reportloss">Report Loss</button>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1>
-        <button mat-button [matMenuTriggerFor]="reportloss">Report Found</button>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1>
-        <button mat-button [matMenuTriggerFor]="reportloss">Modify Lost Id</button>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1>
-        <button mat-button [matMenuTriggerFor]="reportloss">Search Lost Id</button>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1>
-        <button mat-button [matMenuTriggerFor]="reportloss">Print Lost Id</button>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=1 rowspan=1></mat-grid-tile>
-    </div>
-  
-    <div class="content">
-    <mat-grid-tile colspan=12 rowspan=1> 
-      <h3>{{subtitle1}}</h3>
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+    <mat-grid-tile colspan=8 rowspan=1>
+      <div style="text-align:center">
+        <h1> {{ title }} </h1>
+      </div>  
     </mat-grid-tile>
-  
-    <mat-grid-tile colspan=4 rowspan=1></mat-grid-tile>
-  
-      <mat-grid-tile colspan=4 rowspan=1>
-            <mat-form-field>
-                <mat-select placeholder="Concession-Code" 
-                            [(ngModel)] = "lfConcCode"
-                            (change)="eventSelection($event.value)">
-                    <mat-option *ngFor= "let cCode of concCodes" [value]= "cCode.value">
-                        {{cCode.value}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1></mat-grid-tile>
-  
-      <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1>
-          <div class="Serial">Serial Number</div>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1>
-            <form class="SrlInput">
-                <mat-form-field >
-               <input matInput aria-placeholder="Serail Number" >
-              </mat-form-field>
-            </form>
-      </mat-grid-tile>
-  
-      <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+    <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+</mat-grid-list>
+</mat-card>
+
+<form [formGroup] = "lfForm" (ngSubmit)="onSubmit()">
+  <mat-card > 
+    <mat-grid-tile colspan=1 rowspan=1></mat-grid-tile>
     
-      <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1>
-          <div class="Serial">Reference Letter</div>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1>
-          <form class="RefLtr">
-              <mat-form-field style="width:350px">
-             <input matInput>
-            </mat-form-field>
-            </form>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+      <mat-tab-group [disableRipple]=true style="margin: 10px; 
+                            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+        <mat-tab label= "Report Loss"   >Report Loss    </mat-tab>
+        <mat-tab label= "Report Found"  >Report Found   </mat-tab>
+        <mat-tab label= "Modify Lost ID">Modify Lost ID </mat-tab>
+        <mat-tab label= "Print  Lost ID">Print  Lost ID </mat-tab>
+        <mat-tab label= "Search Lost ID">Search Lost ID </mat-tab>
+      </mat-tab-group>
+    
+    <mat-grid-tile colspan=1 rowspan=1></mat-grid-tile>
+    <!-- </div> -->
+  </mat-card>
+
+<mat-card style="align-self: center" > 
+  <mat-grid-list cols=12 rowHeight="70px">
   
-      <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1>
-          <div class="Serial">Issuing Authority</div>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=4 rowspan=1>
-          <form class="RefLtr">
-              <mat-form-field style="width:350px">
-             <input matInput>
-            </mat-form-field>
-            </form>
-      </mat-grid-tile>
-      <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
-  
-      <mat-grid-tile colspan=12 rowspan=1>
-          <button mat-button class="Final"> Submit</button>
-          <button mat-button class="Final"> Reset</button>
-      </mat-grid-tile>
+  <div class="content">
       
+  <!-- ID-TYPE -->
+
+      <mat-grid-tile colspan=3 rowspan=1>
+        <mat-form-field style="padding-left: 30%">
+          <mat-select placeholder="ID-Type" 
+                      [(ngModel)]= "idType" 
+                      (change)="setIdType($event)" 
+                      formControlName="idType">
+            <mat-option *ngFor= "let IDType of IDTypes" [value]= "IDType.value">
+              {{IDType.viewValue}}
+            </mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <!-- <pre>{{lfForm.value.idType}},{{lfForm.value.lfConcCode}}</pre> -->
+        <!-- <pre>{{lfForm.value.lfConcCode}}</pre> -->
+      </mat-grid-tile>
+
+  <!-- SERIES YES/NO -->
+
+  <mat-grid-tile colspan=3 rowspan=1>
+      <div class="Series">Series Updation</div>
+        <mat-radio-group [(ngModel)]="seriesYes" (change)="seriesSelection($event)" 
+                          formControlName="seriesYes" style="padding-right:10% ">
+          <mat-radio-button value=1>Yes</mat-radio-button>
+          <mat-radio-button value=2>No</mat-radio-button>
+        </mat-radio-group>
+  </mat-grid-tile>
+
+<!-- CONCESSION CODE for PASSES-->
+
+  <mat-grid-tile colspan=3 rowspan=1>
+    <div *ngIf="lfForm.value.idType == 'Passes' || 
+                lfForm.value.idType == 'Metal Token' || 
+                lfForm.value.idType == 'Vouchers'" 
+                style="padding-right:33% ">
+      <mat-form-field *ngIf="lfForm.value.idType != 'Vouchers'; else vch_codes">
+        <mat-select placeholder="Concession-Code" 
+                    [(ngModel)] = "lfConcCode"
+                    (change)="concCodeSelection($event)"
+                    formControlName="lfConcCode">
+            <mat-option *ngFor= "let cCode of concCodes" [value]= "cCode.value">
+                {{cCode.value}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+
+<!-- CONCESSION CODE for VOUCHERS -->
+
+  <ng-template #vch_codes>
+    <mat-form-field>
+      <mat-select placeholder="Concession-Code" 
+      [(ngModel)] = "lfConcCode"
+      (change)="concCodeSelection($event)"
+      formControlName="lfConcCode">
+        <mat-option *ngFor= "let cCode of vchCodes" [value]= "cCode.value">
+              {{cCode.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-template>
+
+<!-- ISSUING ZONE -->
+
+<div>
+    <mat-grid-tile colspan=3 rowspan=1>
+      <mat-form-field *ngIf="lfForm.value.idType !== '' && lfForm.value.idType !== 'Vouchers';
+                              else vch_BillUnitNo" 
+                            style="width: 80%; margin-top: 10px;padding-right:10%;">
+        <mat-select placeholder="Issuing Zone" 
+                    [(ngModel)] = "lfZone"
+                    (change)="zoneChange($event)"
+                    formControlName="lfZone" >
+            <mat-option style="width: 3000px"    *ngFor= "let zone of zoneList" [value]= "zone.value" > 
+                {{zone.value}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+</div>
+
+<ng-template #vch_BillUnitNo>
+  <mat-form-field class="BillNo">
+    <input matInput  placeholder="Bill Unit No" formControlName="lfVchBillNo" width="20px"> 
+  </mat-form-field>
+</ng-template>
+
+<!-- SERIAL NO -->
+
+  <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+
+  <mat-grid-tile colspan=4 rowspan=1>
+    <div class="Serial">Serial Number</div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=3 rowspan=1>
+    <div class="SrlInput" >
+        <mat-form-field >
+      <input matInput  [placeholder]="seriesStart" formControlName="seriesStart"> 
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=3 rowspan=1>        
+    <div class="SrlInput" *ngIf="lfForm.value.seriesYes == 1">
+      <mat-form-field >
+        <input matInput  placeholder="Serial Number End" formControlName="seriesEnd">
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+        
+  <!-- DTPASS APPLICABLE CLASS -->
+    <pre>{{lfForm.value.lfConcCode}}</pre>
+<div *ngIf="((lfForm.value.idType == 'Passes' || 
+                  lfForm.value.idType == 'Metal Token') && 
+                ( lfForm.value.lfConcCode == 'DTPASS' ))">
+  <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+  <mat-grid-tile colspan=4 rowspan=1>
+    <div class="Serial" >Applicable Class</div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=6 rowspan=1>
+    <div class="AppClass">
+      <mat-checkbox class="DtpassClass">1A</mat-checkbox>
+      <mat-checkbox class="DtpassClass">2A</mat-checkbox>
+      <mat-checkbox class="DtpassClass">FC</mat-checkbox>
+      <mat-checkbox class="DtpassClass">3A</mat-checkbox>
+      <mat-checkbox class="DtpassClass">SL</mat-checkbox>
+      <mat-checkbox class="DtpassClass">CC</mat-checkbox>
+    </div>
+  </mat-grid-tile>
+</div>
+      <!-- <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile> -->
+    
+  <!-- REFERENCE LETTER -->
+
+  <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+  <mat-grid-tile colspan=4 rowspan=1>
+    <div class="Serial">Reference Letter</div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=4 rowspan=1>
+    <form class="RefLtr">
+      <mat-form-field style="width:350px">
+        <input matInput>
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+    
+  <!-- ISSUING AUTHORITY -->
+<div *ngIf="lfForm.value.idType == 'Vouchers'">
+  <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+  <mat-grid-tile colspan=4 rowspan=1>
+    <div class="Serial" >Issuing Authority</div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=4 rowspan=1>
+    <div class="RefLtr">
+      <form class="RefLtr">
+        <mat-form-field style="width:350px">
+          <input matInput>
+        </mat-form-field>
+      </form>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan=2 rowspan=1></mat-grid-tile>
+</div>
+    
+  <mat-grid-tile colspan=12 rowspan=1>
+      <button mat-button class="Final"> Submit</button>
+      <button mat-button class="Final"> Reset</button>
+  </mat-grid-tile>
+    
 </div>
   
   </mat-grid-list>
-  
-  <mat-menu #reportloss="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="token" value="Metal Token" on>Metal Tokens</button>
-    <button mat-menu-item [matMenuTriggerFor]="series">Passes</button>
-    <button mat-menu-item [matMenuTriggerFor]="series">BPT</button>
-    <button mat-menu-item [matMenuTriggerFor]="series">EFT</button>
-    <button mat-menu-item [matMenuTriggerFor]="series">Vouchers</button>
-    <button mat-menu-item [matMenuTriggerFor]="series">Ticket Rolls</button>
-  </mat-menu>
-  
-  <mat-menu #token="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="series">Dtpass</button>
-    <button mat-menu-item [matMenuTriggerFor]="series">Others</button>
-  </mat-menu>
+</mat-card>
+</form>
 
-  <mat-menu #series="matMenu">
-    <button mat-menu-item >Single Id</button>
-    <button mat-menu-item >ID Range</button>
-  </mat-menu>

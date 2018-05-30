@@ -1,0 +1,42 @@
+[
+    {
+        "classCode" : "1A",
+        "className" : "FirstAC"
+    },
+    {
+        "classCode" : "2A",
+        "className" : "SecondAC"
+    },
+    {
+        "classCode" : "3A",
+        "className" : "ThirdAC"
+    },
+    {
+        "classCode" : "CC",
+        "className" : "Chair-Car"
+    },
+    {
+        "classCode" : "SL",
+        "className" : "Sleeper"
+    },
+    {
+        "classCode" : "2T",
+        "className" : "Two-Tier"
+    },
+    {
+        "classCode" : "2S",
+        "className" : "Second Sitting"
+    },
+    {
+        "classCode" : "3H",
+        "className" : "ThirdAC-HighCap"
+    },
+    {
+        "classCode" : "CH",
+        "className" : "ChairCar-HighCap"
+    },
+    {
+        "classCode" : "SH",
+        "className" : "Sleeper-HighCap"
+    }
+]
